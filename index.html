@@ -44,4 +44,107 @@ function editProfile(){document.getElementById('nameinput').value=document.getEl
 function saveProfile(){const n=document.getElementById('nameinput').value.trim()||'TooRaw2Trip Member';const b=document.getElementById('bioinput').value.trim();document.getElementById('displayname').textContent=n+' ✦';document.getElementById('bio').textContent=b;go('profile');toast('Profile preview updated 💜')}
 function searchChats(q){document.querySelectorAll('#chatlist .chatrow').forEach(r=>r.style.display=r.textContent.toLowerCase().includes(q.toLowerCase())?'flex':'none')}
 function setDiscover(kind){toast(kind+' discovery selected — demo mode')}
-</script></body></html>
+</script>// TooRaw2Trip Casino functions
+let casinoData={coins:1000,points:0,lastBonus:""};
+try{
+casinoData={...casinoData,...JSON.parse(localStorage.getItem("tr2casino")||"{}")};
+}catch(e){}
+
+let casinoBusy=false;
+
+function casinoSave(){
+try{localStorage.setItem("tr2casino",JSON.stringify(casinoData));}catch(e){}
+casinoRender();
+}
+
+function casinoRender(){
+const coins=document.getElementById("casinoCoins");
+if(coins)coins.textContent=casinoData.coins.toLocaleString();
+const points=casinoData.points;
+const vip=document.getElementById("casinoVip");
+const progress=document.getElementById("casinoProgress");
+const label=document.getElementById("casinoVipPoints");
+if(vip)vip.textContent=points>=2000?"GOLD VIP MEMBER":points>=500?"SILVER VIP MEMBER":"BRONZE MEMBER";
+if(progress)progress.style.width=Math.min(points/20,100)+"%";
+if(label)label.textContent=points+" / 2000 VIP points";
+const board=document.getElementById("casinoLeaderboard");
+if(board)board.innerHTML='<div class="casino-rank"><b>1. You</b><span>'+points+' points</span></div><div class="casino-rank"><b>2. Player Two</b><span>0 points</span></div><div class="casino-rank"><b>3. Player Three</b><span>0 points</span></div>';
+}
+
+function casinoOpen(name){
+document.getElementById("casinoMachine").classList.add("open");
+document.getElementById("casinoGameTitle").textContent=name.toUpperCase();
+document.getElementById("casinoStatus").textContent="Welcome to "+name+"!";
+document.getElementById("casinoMachine").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function casinoClose(){
+document.getElementById("casinoMachine").classList.remove("open");
+}
+
+function casinoDaily(){
+const today=new Date().toLocaleDateString();
+if(casinoData.lastBonus===today){
+document.getElementById("casinoDailyStatus").textContent="You already claimed today's reward. Come back tomorrow!";
+return;
+}
+casinoData.coins+=100;
+casinoData.lastBonus=today;
+casinoSave();
+document.getElementById("casinoDailyStatus").textContent="100 virtual coins added to your balance!";
+}
+
+function casinoSearchGames(query){
+document.querySelectorAll("#casinoGrid .casino-game").forEach(game=>{
+game.style.display=game.dataset.name.toLowerCase().includes(query.toLowerCase())?"block":"none";
+});
+}
+
+function casinoCategory(category,button){
+document.querySelectorAll("#slots .casino-tabs button").forEach(b=>b.classList.remove("selected"));
+button.classList.add("selected");
+document.querySelectorAll("#casinoGrid .casino-game").forEach(game=>{
+game.style.display=category==="all"||game.dataset.category===category?"block":"none";
+});
+document.getElementById("casinoSearch").value="";
+}
+
+function casinoSpin(){
+if(casinoBusy)return;
+const bet=Number(document.getElementById("casinoBet").value);
+if(casinoData.coins<bet){
+document.getElementById("casinoStatus").textContent="Not enough coins. Claim your daily bonus!";
+return;
+}
+casinoBusy=true;
+casinoData.coins-=bet;
+casinoSave();
+document.getElementById("casinoSpin").disabled=true;
+const symbols=["🍒","🍋","🍇","💎","7️⃣","🔔","⭐","👑"];
+const ids=["casinoR1","casinoR2","casinoR3"];
+const results=ids.map(()=>symbols[Math.floor(Math.random()*symbols.length)]);
+ids.forEach((id,i)=>{
+const el=document.getElementById(id);
+let count=0;
+const timer=setInterval(()=>{
+el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+count++;
+if(count>=15+i*7){
+clearInterval(timer);
+el.textContent=results[i];
+if(i===2){
+const matches=results.filter(s=>s===results[0]).length;
+let winnings=matches===3?bet*10:matches===2?bet*2:0;
+casinoData.coins+=winnings;
+casinoData.points+=winnings?bet:0;
+casinoSave();
+document.getElementById("casinoStatus").textContent=winnings?"🎉 YOU WON "+winnings+" VIRTUAL COINS!":"No win this time. Try again!";
+casinoBusy=false;
+document.getElementById("casinoSpin").disabled=false;
+}
+}
+},100);
+});
+}
+
+casinoRender();</body></html>
