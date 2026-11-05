@@ -7,7 +7,111 @@
 @media(min-width:650px){.content{padding:22px}.postart{height:230px}.matchphoto{height:240px}}
 </style></head>
 <body><div class="app"><header class="top"><div class="crown">♛</div><div><div class="brand">TooRaw2Trip</div><div class="tag">YOUR WORLD. YOUR VIBE.</div></div><div class="spacer"></div><button class="secondary" style="padding:8px 10px;font-size:12px" id="accountBtn" onclick="openAuth()">Sign in</button><button class="iconbtn" aria-label="Notifications" onclick="toast('You’re all caught up 💜')">♧</button></header>
-<main class="content">
+
+<section class="page" id="slots">
+  <div class="casino-hero">
+    <div>
+      <p>TOORAW2TRIP PRESENTS</p>
+      <h1>🎰 SLOT ROOM</h1>
+      <p>Your games. Your coins. Your vibe.</p>
+    </div>
+    <div class="casino-balance">
+      <span>YOUR COINS</span>
+      <h2 id="casinoCoins">1,000</h2>
+    </div>
+  </div>
+
+  <div class="casino-section">
+    <h2>🔥 Featured Game</h2>
+    <div class="casino-feature">
+      <div>
+        <h2>ROYAL FORTUNE</h2>
+        <p>Spin for virtual coin prizes!</p>
+        <button onclick="casinoOpen('Royal Fortune')">PLAY NOW</button>
+      </div>
+      <div class="casino-feature-art">👑💎🎰</div>
+    </div>
+  </div>
+
+  <div class="casino-section">
+    <h2>🎮 Game Library</h2>
+    <input id="casinoSearch" placeholder="Search games..." oninput="casinoSearchGames()">
+    <div class="casino-categories">
+      <button onclick="casinoCategory('all')">All Games</button>
+      <button onclick="casinoCategory('slots')">Slots</button>
+      <button onclick="casinoCategory('popular')">Popular</button>
+    </div>
+
+    <div class="casino-grid" id="casinoGames">
+      <button class="casino-game" onclick="casinoOpen('Royal Fortune')" data-category="popular">
+        <span>👑💎</span><strong>Royal Fortune</strong><small>Featured</small>
+      </button>
+      <button class="casino-game" onclick="casinoOpen('Diamond Rush')" data-category="slots">
+        <span>💎✨</span><strong>Diamond Rush</strong><small>Slots</small>
+      </button>
+      <button class="casino-game" onclick="casinoOpen('Golden Sevens')" data-category="popular">
+        <span>7️⃣🍀</span><strong>Golden Sevens</strong><small>Popular</small>
+      </button>
+      <button class="casino-game" onclick="casinoOpen('Fruit Frenzy')" data-category="slots">
+        <span>🍒🍋</span><strong>Fruit Frenzy</strong><small>Slots</small>
+      </button>
+      <button class="casino-game" onclick="casinoOpen('Wild Kingdom')" data-category="slots">
+        <span>🦁🐯</span><strong>Wild Kingdom</strong><small>Slots</small>
+      </button>
+      <button class="casino-game" onclick="casinoOpen('Mystic Nights')" data-category="popular">
+        <span>🌙🔮</span><strong>Mystic Nights</strong><small>Popular</small>
+      </button>
+    </div>
+  </div>
+
+  <div class="casino-machine" id="casinoMachine" style="display:none">
+    <button onclick="casinoClose()">← BACK TO GAMES</button>
+    <h2 id="casinoGameTitle">Royal Fortune</h2>
+    <div class="casino-reels">
+      <div class="casino-reel" id="casinoReel1">🍒</div>
+      <div class="casino-reel" id="casinoReel2">💎</div>
+      <div class="casino-reel" id="casinoReel3">7️⃣</div>
+    </div>
+    <p>Choose your virtual coin bet</p>
+    <select id="casinoBet">
+      <option value="10">10 coins</option>
+      <option value="25">25 coins</option>
+      <option value="50">50 coins</option>
+      <option value="100">100 coins</option>
+    </select>
+    <button class="casino-spin" id="casinoSpinBtn" onclick="casinoSpin()">🎰 SPIN</button>
+    <p id="casinoResult">Good luck!</p>
+  </div>
+
+  <div class="casino-section">
+    <h2>🎁 Daily Bonus</h2>
+    <p>Come back daily to collect your virtual coins.</p>
+    <button onclick="casinoDaily()">CLAIM DAILY BONUS</button>
+    <p id="casinoDailyMessage"></p>
+  </div>
+
+  <div class="casino-section">
+    <h2>💎 VIP Rewards</h2>
+    <p>Earn points through virtual play and unlock VIP levels.</p>
+    <div class="casino-vip-progress"><div id="casinoVipProgress"></div></div>
+    <p id="casinoVipLevel">VIP Level 1</p>
+  </div>
+
+  <div class="casino-section">
+    <h2>🏆 Leaderboard</h2>
+    <div id="casinoLeaderboard">
+      <p>1. Royal Player — 5,000 coins</p>
+      <p>2. Diamond King — 3,500 coins</p>
+      <p>3. Slot Master — 2,000 coins</p>
+    </div>
+  </div>
+
+  <p class="casino-disclaimer">
+    Virtual coins only. No cash value. No deposits or withdrawals.
+  </p>
+</section>
+
+  <main class="content">
 <section class="page active" id="home"><h1>What’s good? <span style="color:#d879ff">💜</span></h1><div class="sub">Your people. Your posts. Your world.</div><div class="sectionhead"><h2>Your Circle</h2><button class="action" onclick="go('discover')">Find people ↗</button></div><div class="stories"><div class="story" onclick="toast('Story creation is coming soon!')"><div class="avatar">＋</div>Your Story</div><div class="story"><div class="avatar">🦋</div>JadaLynn</div><div class="story"><div class="avatar">🎧</div>KingTae</div><div class="story"><div class="avatar">🌙</div>MayaB</div><div class="story"><div class="avatar">🛹</div>LilRob</div><div class="story"><div class="avatar">✨</div>Kierra</div></div>
 <div class="card"><div class="composer"><div class="miniavatar">👑</div><button class="fakeinput" onclick="go('create')">What’s on your mind?</button></div><div class="quickrow"><button class="pill" onclick="go('create')">▧ Photo</button><button class="pill" onclick="go('create')">♫ Music</button><button class="pill" onclick="go('create')">▷ Video</button></div></div>
 <div id="feed"><article class="card"><div class="posthead"><div class="miniavatar">🦋</div><div><div class="postname">Brielle_Skyy <span style="color:#c084fc">✦</span></div><div class="postmeta">2h ago · Homer, LA</div></div><button class="dots" onclick="toast('Post options coming soon')">···</button></div><div class="posttext">Good vibes only 💜<br>New day, same goals. #TooRaw2Trip</div><div class="postart"><strong>GOOD VIBES ONLY</strong><span>TOORAW2TRIP ✦</span></div><div class="actions"><button class="action" onclick="like(this)">♡ <span>248</span> Like</button><button class="action" onclick="toast('Comments will be connected in the next build')">▢ 36 Comment</button><button class="action" onclick="toast('Reposts are coming soon')">⟳ Repost</button><button class="action" onclick="toast('Post link copied in a future version')">↗</button></div></article><article class="card"><div class="posthead"><div class="miniavatar">🎧</div><div><div class="postname">TreyDaReal</div><div class="postmeta">4h ago · Shreveport, LA</div></div></div><div class="posttext">Just dropped a new track 🔥 y’all go show some love. Link in bio!</div><div class="actions"><button class="action" onclick="like(this)">♡ 91 Like</button><button class="action" onclick="toast('Comments will be connected in the next build')">▢ Comment</button><button class="action" onclick="toast('Reposts are coming soon')">⟳ Repost</button></div></article></div></section>
