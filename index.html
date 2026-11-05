@@ -126,7 +126,207 @@
   <span class="ni">🎰</span>Slots
 </button>class="active" data-page="home" onclick="go('home')"><span class="ni">⌂</span>Home</button><button data-page="discover" onclick="go('discover')"><span class="ni">⌕</span>Discover</button><button class="create" data-page="create" onclick="go('create')"><span class="ni">＋</span>Create</button><button data-page="messages" onclick="go('messages')"><span class="ni">▢</span>Messages</button><button data-page="profile" onclick="go('profile')"><span class="ni">♙</span>Profile</button></nav><div class="toast" id="toast"></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
+
+/* TooRaw2Trip Casino Engine */
+
+let casinoData = JSON.parse(localStorage.getItem("tr2casino") || "null") || {
+  coins: 1000,
+  vip: 0,
+  lastBonus: "",
+  spins: 0
+};
+
+let casinoCurrentGame = "Royal Fortune";
+let casinoBusy = false;
+let casinoFilter = "all";
+
+function casinoSave() {
+  localStorage.setItem("tr2casino", JSON.stringify(casinoData));
+  casinoRender();
+}
+
+function casinoRender() {
+  const coins = document.getElementById("casinoCoins");
+  if (coins) coins.textContent = casinoData.coins.toLocaleString();
+
+  const vip = document.getElementById("casinoVipProgress");
+  if (vip) {
+    vip.style.width = Math.min(100, casinoData.vip % 100) + "%";
+  }
+
+  const level = document.getElementById("casinoVipLevel");
+  if (level) {
+    level.textContent = "VIP Level " +
+      (Math.floor(casinoData.vip / 100) + 1);
+  }
+}
+
+function casinoOpen(game) {
+  casinoCurrentGame = game;
+
+  const title = document.getElementById("casinoGameTitle");
+  const machine = document.getElementById("casinoMachine");
+
+  if (title) title.textContent = game;
+  if (machine) {
+    machine.style.display = "block";
+    machine.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  casinoRender();
+}
+
+function casinoClose() {
+  const machine = document.getElementById("casinoMachine");
+  if (machine) machine.style.display = "none";
+}
+
+function casinoSearchGames() {
+  const search = (
+    document.getElementById("casinoSearch")?.value || ""
+  ).toLowerCase();
+
+  document.querySelectorAll(".casino-game").forEach(game => {
+    const matchesSearch = game.textContent.toLowerCase().includes(search);
+    const matchesCategory =
+      casinoFilter === "all" ||
+      game.dataset.category === casinoFilter;
+
+    game.style.display =
+      matchesSearch && matchesCategory ? "" : "none";
+  });
+}
+
+function casinoCategory(category) {
+  casinoFilter = category;
+  casinoSearchGames();
+}
+
+function casinoDaily() {
+  const today = new Date().toDateString();
+  const message = document.getElementById("casinoDailyMessage");
+
+  if (casinoData.lastBonus === today) {
+    if (message) message.textContent =
+      "You already claimed today's bonus. Come back tomorrow!";
+    return;
+  }
+
+  casinoData.coins += 250;
+  casinoData.lastBonus = today;
+
+  if (message) message.textContent =
+    "You received 250 virtual coins!";
+
+  casinoSave();
+}
+
+function casinoSpin() {
+  if (casinoBusy) return;
+
+  const bet = Number(
+    document.getElementById("casinoBet")?.value || 10
+  );
+
+  const result = document.getElementById("casinoResult");
+  const button = document.getElementById("casinoSpinBtn");
+
+  if (casinoData.coins < bet) {
+    if (result) result.textContent = "Not enough virtual coins!";
+    return;
+  }
+
+  casinoBusy = true;
+  casinoData.coins -= bet;
+  casinoData.spins++;
+
+  if (button) {
+    button.disabled = true;
+    button.textContent = "SPINNING...";
+  }
+
+  casinoSave();
+
+  const symbols = ["🍒", "💎", "7️⃣", "🍋", "👑", "🔔"];
+  const reels = [
+    document.getElementById("casinoReel1"),
+    document.getElementById("casinoReel2"),
+    document.getElementById("casinoReel3")
+  ];
+
+  let finished = 0;
+  const finalSymbols = [];
+
+  reels.forEach((reel, index) => {
+    let ticks = 0;
+    const totalTicks = 12 + index * 7;
+
+    const timer = setInterval(() => {
+      if (reel) {
+        reel.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+      }
+
+      ticks++;
+
+      if (ticks >= totalTicks) {
+        clearInterval(timer);
+
+        finalSymbols[index] =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        if (reel) reel.textContent = finalSymbols[index];
+
+        finished++;
+
+        if (finished === 3) {
+          casinoFinishSpin(bet, finalSymbols);
+        }
+      }
+    }, 100);
+  });
+}
+
+function casinoFinishSpin(bet, symbols) {
+  let winnings = 0;
+
+  if (symbols[0] === symbols[1] &&
+      symbols[1] === symbols[2]) {
+    winnings = bet * 10;
+  } else if (
+    symbols[0] === symbols[1] ||
+    symbols[1] === symbols[2] ||
+    symbols[0] === symbols[2]
+  ) {
+    winnings = bet * 2;
+  }
+
+  casinoData.coins += winnings;
+  casinoData.vip += 5;
+
+  const result = document.getElementById("casinoResult");
+
+  if (result) {
+    result.textContent = winnings > 0
+      ? "YOU WON " + winnings + " VIRTUAL COINS!"
+      : "No win this time. Try again!";
+  }
+
+  casinoBusy = false;
+
+  const button = document.getElementById("casinoSpinBtn");
+  if (button) {
+    button.disabled = false;
+    button.textContent = "🎰 SPIN";
+  }
+
+  casinoSave();
+}
+
+/* Initialize casino */
+casinoRender();
+
+  <script> 
 // Add your Supabase project URL and PUBLIC anon/publishable key here. Never use a service_role/secret key in browser code.
 const SUPABASE_URL = "https://yzfhcpenoiifoqurjgts.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_GQ1ss6696EFFQEWW_Oc6pg_vgy95giZ";
