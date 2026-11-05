@@ -5,9 +5,46 @@
 <style>
 :root{--bg:#0d0b14;--panel:#17121f;--panel2:#21182f;--line:#49316c;--purple:#a855f7;--pink:#e879f9;--text:#f7f1ff;--muted:#b7a8c9;--good:#b6f09c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#24103b 0,#0d0b14 45%);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:88px}.top{position:sticky;top:0;z-index:5;background:#0d0b14ed;backdrop-filter:blur(16px);border-bottom:1px solid #38224f;padding:14px 16px;display:flex;align-items:center;gap:10px}.crown{color:var(--pink);font-size:25px;text-shadow:0 0 18px #a855f7}.brand{font-weight:950;letter-spacing:-1px;font-size:22px;background:linear-gradient(90deg,#fff,#d8a4ff,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}.tag{font-size:10px;letter-spacing:2px;color:#cba7f6;margin-top:2px}.spacer{flex:1}.iconbtn{background:var(--panel2);border:1px solid var(--line);border-radius:12px;width:40px;height:40px;font-size:18px}.content{padding:16px}.page{display:none}.page.active{display:block;animation:fade .18s ease}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}h1{font-size:25px;margin:4px 0 6px}h2{font-size:17px;margin:0 0 12px}.sub{color:var(--muted);font-size:13px}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}.stories{display:flex;gap:13px;overflow-x:auto;padding:6px 0 12px}.story{flex:0 0 62px;text-align:center;font-size:11px;color:var(--muted)}.avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto 6px;border:2px solid #d879ff;background:linear-gradient(145deg,#6d28d9,#21182f 70%);box-shadow:0 0 14px #7c3aed55;font-size:23px}.story:first-child .avatar{border-style:dashed}.card{background:linear-gradient(145deg,#1b1425,#130f1b);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:14px;box-shadow:0 10px 28px #0002}.composer{display:flex;gap:10px;align-items:center}.miniavatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#3d2260;border:1px solid #a855f7;flex-shrink:0}.fakeinput{flex:1;text-align:left;background:#0f0c16;border:1px solid #49316c;border-radius:14px;padding:12px;color:var(--muted)}.quickrow{display:flex;gap:8px;margin-top:12px}.pill{border:1px solid #56357d;background:#28183a;border-radius:999px;padding:8px 12px;font-size:12px;color:#e8d5ff}.posthead{display:flex;gap:10px;align-items:center}.postname{font-weight:750;font-size:14px}.postmeta{font-size:11px;color:var(--muted);margin-top:3px}.dots{margin-left:auto;background:none;border:0;color:var(--muted);font-size:20px}.posttext{line-height:1.55;font-size:14px;margin:13px 0}.postart{height:180px;border-radius:13px;background:linear-gradient(135deg,#220d3a,#7429a8 48%,#0e0b16);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;margin:12px 0;position:relative;overflow:hidden}.postart:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff30;border-radius:50%;box-shadow:0 0 0 24px #ffffff08,0 0 0 48px #ffffff08}.postart strong{font-size:28px;font-style:italic;z-index:1;text-shadow:0 0 18px #efb5ff}.postart span{font-size:10px;letter-spacing:3px;margin-top:8px;z-index:1}.actions{display:flex;gap:6px;justify-content:space-between;border-top:1px solid #38224f;padding-top:10px}.action{background:none;border:0;color:var(--muted);font-size:12px;padding:7px 4px}.action.liked{color:#ff8ad8}.nav{position:fixed;bottom:0;left:0;right:0;z-index:10;background:#100d18f5;backdrop-filter:blur(18px);border-top:1px solid #49316c;padding:9px 6px calc(9px + env(safe-area-inset-bottom));display:flex;justify-content:space-around;max-width:760px;margin:auto}.nav button{border:0;background:none;color:#9e8eaf;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:52px}.nav .ni{font-size:21px}.nav button.active{color:#d8a4ff}.nav button.active .ni{text-shadow:0 0 15px #a855f7}.nav .create .ni{background:linear-gradient(135deg,#a855f7,#6d28d9);border-radius:13px;width:34px;height:29px;display:grid;place-items:center;color:white}.profilehero{height:145px;border-radius:18px;background:linear-gradient(125deg,#230d39,#8534b9,#161020);position:relative;margin-bottom:46px;border:1px solid #7541a1}.profilehero:after{content:"✦  YOUR VIBE ONLY  ✦";position:absolute;right:14px;top:23px;font-size:12px;font-style:italic;letter-spacing:2px;color:#f0c9ff;transform:rotate(-8deg)}.profilepic{position:absolute;bottom:-34px;left:18px;width:78px;height:78px;border-radius:50%;border:4px solid #0d0b14;background:linear-gradient(135deg,#9d4edd,#26123d);display:grid;place-items:center;font-size:32px}.editbtn{position:absolute;bottom:12px;right:12px;background:#241333;border:1px solid #b76bfa;border-radius:10px;padding:8px 10px;font-size:11px}.stats{display:flex;justify-content:space-around;text-align:center;padding:12px 0}.stats strong{display:block;font-size:19px}.stats span{font-size:11px;color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.tagchip{border:1px solid #694093;border-radius:999px;padding:6px 10px;color:#e5c7ff;font-size:11px}.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match{padding:0;overflow:hidden}.matchphoto{height:190px;display:flex;align-items:center;justify-content:center;font-size:64px;background:linear-gradient(145deg,#52227d,#171020)}.match:nth-child(2) .matchphoto{background:linear-gradient(145deg,#4c174b,#161020)}.match:nth-child(3) .matchphoto{background:linear-gradient(145deg,#24376b,#171020)}.match:nth-child(4) .matchphoto{background:linear-gradient(145deg,#6b3a23,#171020)}.matchinfo{padding:12px}.matchinfo strong{font-size:14px}.matchinfo p{font-size:11px;color:var(--muted);margin:6px 0}.matchbuttons{display:flex;gap:8px}.matchbuttons button{flex:1;border-radius:11px;border:1px solid #7541a1;padding:9px;background:#251532}.matchbuttons .heart{background:#782ac1}.field{display:block;width:100%;border:1px solid #53356d;border-radius:12px;background:#0e0b15;color:var(--text);padding:12px;margin:7px 0 14px;outline:none}.field:focus{border-color:#c084fc}.label{font-size:12px;color:#d7c1ed}.primary{background:linear-gradient(100deg,#8b35d1,#5b21b6);border:1px solid #c084fc;border-radius:12px;padding:12px 16px;font-weight:750;width:100%;box-shadow:0 0 18px #7c3aed30}.secondary{background:#241532;border:1px solid #583777;border-radius:12px;padding:10px 13px}.chatrow{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #30203f}.chatrow .miniavatar{width:46px;height:46px}.chatrow p{margin:4px 0 0;color:var(--muted);font-size:12px}.online{color:var(--good);font-size:10px;margin-left:auto}.notice{background:#20142d;border:1px solid #56357d;border-radius:12px;padding:12px;color:#d7c1ed;font-size:12px;line-height:1.5;margin:12px 0}.themechoices{display:flex;gap:10px}.swatch{width:42px;height:42px;border-radius:50%;border:2px solid #fff5}.swatch.selected{outline:2px solid white;outline-offset:3px}.empty{text-align:center;padding:35px 10px;color:var(--muted)}.tiny{font-size:11px;color:var(--muted);line-height:1.5}.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;background:#f2e7ff;color:#27123a;padding:11px 16px;border-radius:12px;font-size:13px;font-weight:700;z-index:20;display:none;box-shadow:0 8px 30px #0006;max-width:90%;text-align:center}
 @media(min-width:650px){.content{padding:22px}.postart{height:230px}.matchphoto{height:240px}}
+
+/* TooRaw2Trip Slot Room */
+.casino-hero{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px;border:1px solid #7541a1;border-radius:20px;background:radial-gradient(circle at 80% 20%,#7135a8 0,#29113f 42%,#15101e 100%);margin:4px 0 18px;box-shadow:0 12px 32px #0005}
+.casino-hero p{margin:5px 0;color:#ddc4f4;font-size:12px}
+.casino-hero h1{font-size:26px;letter-spacing:.5px}
+.casino-balance{flex:0 0 auto;text-align:center;background:#0d0b14a8;border:1px solid #b56df0;border-radius:15px;padding:12px}
+.casino-balance span{font-size:9px;letter-spacing:1.5px;color:#d9b8f4}
+.casino-balance h2{font-size:24px;margin:5px 0 0;color:#f4d5ff}
+.casino-section,.casino-machine{background:linear-gradient(145deg,#1b1425,#130f1b);border:1px solid var(--line);border-radius:18px;padding:15px;margin:14px 0}
+.casino-feature{display:flex;justify-content:space-between;align-items:center;gap:12px;background:linear-gradient(120deg,#32134e,#6d28a4);border:1px solid #a855f7;border-radius:15px;padding:16px}
+.casino-feature h2{font-size:18px;margin:0 0 7px}.casino-feature p{font-size:12px;color:#ead8fa}
+.casino-feature button,.casino-categories button,.casino-machine>button,.casino-spin,.casino-section>button{background:#8b35d1;border:1px solid #d8a4ff;border-radius:11px;padding:10px 13px;font-weight:750}
+.casino-feature-art{font-size:36px;white-space:nowrap}
+#casinoSearch{width:100%;padding:11px 12px;border:1px solid #53356d;border-radius:11px;background:#0e0b15;color:var(--text);margin:3px 0 10px}
+.casino-categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.casino-categories button{background:#28183a;font-size:11px;padding:8px 11px}
+.casino-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.casino-game{min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#100d18;border:1px solid #56357d;border-radius:14px;color:var(--text)}
+.casino-game span{font-size:30px}.casino-game strong{font-size:12px}.casino-game small{font-size:10px;color:var(--muted)}
+.casino-machine{text-align:center;border-color:#a855f7}
+.casino-machine>button{display:block;background:#28183a;font-size:11px}
+.casino-reels{display:flex;justify-content:center;gap:10px;margin:18px 0}
+.casino-reel{width:74px;height:78px;display:grid;place-items:center;background:linear-gradient(145deg,#32134e,#100d18);border:2px solid #a855f7;border-radius:14px;font-size:34px;box-shadow:inset 0 0 18px #a855f733}
+#casinoBet{background:#100d18;color:var(--text);border:1px solid #694093;border-radius:10px;padding:10px;margin:6px}
+.casino-spin{display:block;width:100%;margin-top:10px;font-size:15px}
+.casino-spin:disabled{opacity:.6}
+#casinoResult,#casinoDailyMessage{color:#e8caff;font-size:13px;min-height:18px}
+.casino-vip-progress{height:12px;background:#0d0b14;border:1px solid #56357d;border-radius:99px;overflow:hidden}
+#casinoVipProgress{height:100%;width:0;background:linear-gradient(90deg,#8b35d1,#f0abfc);transition:width .25s}
+#casinoLeaderboard p{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #38224f;padding:8px 0;margin:0;font-size:12px}
+.casino-disclaimer{font-size:10px;color:var(--muted);text-align:center;padding:8px}
+@media(min-width:520px){.casino-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:380px){.casino-hero{align-items:flex-start;flex-direction:column}.casino-balance{width:100%}.casino-feature-art{font-size:27px}}
+
 </style></head>
 <body><div class="app"><header class="top"><div class="crown">♛</div><div><div class="brand">TooRaw2Trip</div><div class="tag">YOUR WORLD. YOUR VIBE.</div></div><div class="spacer"></div><button class="secondary" style="padding:8px 10px;font-size:12px" id="accountBtn" onclick="openAuth()">Sign in</button><button class="iconbtn" aria-label="Notifications" onclick="toast('You’re all caught up 💜')">♧</button></header>
 
+
+
+  <main class="content">
 <section class="page" id="slots">
   <div class="casino-hero">
     <div>
@@ -111,7 +148,6 @@
   </p>
 </section>
 
-  <main class="content">
 <section class="page active" id="home"><h1>What’s good? <span style="color:#d879ff">💜</span></h1><div class="sub">Your people. Your posts. Your world.</div><div class="sectionhead"><h2>Your Circle</h2><button class="action" onclick="go('discover')">Find people ↗</button></div><div class="stories"><div class="story" onclick="toast('Story creation is coming soon!')"><div class="avatar">＋</div>Your Story</div><div class="story"><div class="avatar">🦋</div>JadaLynn</div><div class="story"><div class="avatar">🎧</div>KingTae</div><div class="story"><div class="avatar">🌙</div>MayaB</div><div class="story"><div class="avatar">🛹</div>LilRob</div><div class="story"><div class="avatar">✨</div>Kierra</div></div>
 <div class="card"><div class="composer"><div class="miniavatar">👑</div><button class="fakeinput" onclick="go('create')">What’s on your mind?</button></div><div class="quickrow"><button class="pill" onclick="go('create')">▧ Photo</button><button class="pill" onclick="go('create')">♫ Music</button><button class="pill" onclick="go('create')">▷ Video</button></div></div>
 <div id="feed"><article class="card"><div class="posthead"><div class="miniavatar">🦋</div><div><div class="postname">Brielle_Skyy <span style="color:#c084fc">✦</span></div><div class="postmeta">2h ago · Homer, LA</div></div><button class="dots" onclick="toast('Post options coming soon')">···</button></div><div class="posttext">Good vibes only 💜<br>New day, same goals. #TooRaw2Trip</div><div class="postart"><strong>GOOD VIBES ONLY</strong><span>TOORAW2TRIP ✦</span></div><div class="actions"><button class="action" onclick="like(this)">♡ <span>248</span> Like</button><button class="action" onclick="toast('Comments will be connected in the next build')">▢ 36 Comment</button><button class="action" onclick="toast('Reposts are coming soon')">⟳ Repost</button><button class="action" onclick="toast('Post link copied in a future version')">↗</button></div></article><article class="card"><div class="posthead"><div class="miniavatar">🎧</div><div><div class="postname">TreyDaReal</div><div class="postmeta">4h ago · Shreveport, LA</div></div></div><div class="posttext">Just dropped a new track 🔥 y’all go show some love. Link in bio!</div><div class="actions"><button class="action" onclick="like(this)">♡ 91 Like</button><button class="action" onclick="toast('Comments will be connected in the next build')">▢ Comment</button><button class="action" onclick="toast('Reposts are coming soon')">⟳ Repost</button></div></article></div></section>
@@ -120,337 +156,401 @@
 <section class="page" id="messages"><h1>Messages</h1><div class="sub">Your conversations, all in one place.</div><input class="field" placeholder="⌕  Search chats…" oninput="searchChats(this.value)"><div id="chatlist"><div class="chatrow"><div class="miniavatar">🦋</div><div><strong>JadaLynn</strong><p>Hey stranger 😍</p></div><span class="online">●</span></div><div class="chatrow"><div class="miniavatar">🎧</div><div><strong>TreyDaReal</strong><p>You got that track yet?</p></div></div><div class="chatrow"><div class="miniavatar">🌙</div><div><strong>MayaB</strong><p>Wyd tonight? 👀</p></div><span class="online">●</span></div><div class="chatrow"><div class="miniavatar">🛹</div><div><strong>LilRob</strong><p>That’s dope! I’m in town too</p></div></div></div><div class="notice">Messaging is a visual preview. Real private messages will be enabled after secure accounts and database access are set up.</div></section>
 <section class="page" id="profile"><h1>My Space</h1><div class="sub">Make it yours. Show your vibe.</div><div class="profilehero"><div class="profilepic" id="profileemoji">👑</div><button class="editbtn" onclick="editProfile()">✎ Edit profile</button></div><h2 id="displayname">TooRaw2Trip Member <span style="color:#c084fc">✦</span></h2><div class="sub" id="bio">Real ones only. Music ♫ · Good vibes · No fake people.</div><div class="stats"><div><strong id="postcount">12</strong><span>Posts</span></div><div><strong>128</strong><span>Followers</span></div><div><strong>96</strong><span>Following</span></div></div><div class="tags"><span class="tagchip">♫ Music</span><span class="tagchip">✈ Travel</span><span class="tagchip">✦ Good vibes</span></div><div class="card"><h2>Customize your space</h2><div class="sub" style="margin-bottom:13px">Pick your profile accent.</div><div class="themechoices"><button class="swatch selected" style="background:#a855f7" aria-label="Purple theme" onclick="theme('#a855f7','#e879f9',this)"></button><button class="swatch" style="background:#1687ff" aria-label="Blue theme" onclick="theme('#1687ff','#75d6ff',this)"></button><button class="swatch" style="background:#e83e8c" aria-label="Pink theme" onclick="theme('#e83e8c','#ff9dc9',this)"></button><button class="swatch" style="background:#16a085" aria-label="Teal theme" onclick="theme('#16a085','#8ef0d2',this)"></button><button class="swatch" style="background:#f59e0b" aria-label="Gold theme" onclick="theme('#f59e0b','#fde68a',this)"></button></div><p class="tiny">Theme changes are a local preview and reset if you refresh.</p></div><div class="card"><h2>VIP ✦ Premium</h2><div class="sub">Stand out with exclusive themes, profile flair, and extra discovery options.</div><button class="primary" style="margin-top:13px" onclick="go('premium')">Explore VIP features</button></div></section>
 <section class="page" id="premium"><h1>TooRaw2Trip VIP ✦</h1><div class="sub">More ways to express yourself.</div><div class="postart" style="margin-top:18px;height:150px"><strong>YOUR SPACE. YOUR RULES.</strong><span>VIP EXPERIENCE</span></div><div class="card"><h2>Potential VIP perks</h2><p>✦ Exclusive profile themes and decorations</p><p>✦ More discovery filters</p><p>✦ Optional profile boosts</p><p>✦ Extra profile customization</p><div class="notice">Premium is a concept only. No payments are collected in this prototype.</div><button class="primary" onclick="toast('VIP subscriptions will be added after the core app is built.')">Notify me when VIP launches</button></div><button class="secondary" style="width:100%" onclick="go('profile')">← Back to My Space</button></section>
-<section class="page" id="settings"><h1>Edit your profile</h1><div class="sub">Make your space feel like you.</div><div class="card" style="margin-top:16px"><label class="label" for="nameinput">Display name</label><input id="nameinput" class="field" value="TooRaw2Trip Member" maxlength="40"><label class="label" for="bioinput">Bio</label><textarea id="bioinput" class="field" rows="3" maxlength="180">Real ones only. Music ♫ · Good vibes · No fake people.</textarea><button class="primary" onclick="saveProfile()">Save preview changes</button><p class="tiny">These edits are stored only in this open page. Account saving comes later.</p></div></section>
-<section class="page" id="account"><h1>Your TooRaw2Trip account</h1><div class="sub">Create an account to start building your own space.</div><div class="card" style="margin-top:16px"><div id="authStatus" class="notice">Connect your free Supabase project to enable real account registration and login.</div><label class="label" for="authEmail">Email address</label><input id="authEmail" class="field" type="email" autocomplete="email" placeholder="you@example.com"><label class="label" for="authPassword">Password</label><input id="authPassword" class="field" type="password" autocomplete="current-password" placeholder="At least 8 characters"><button class="primary" onclick="signUpUser()">Create account</button><button class="secondary" style="width:100%;margin-top:9px" onclick="signInUser()">Sign in</button><button class="secondary" id="signOutBtn" style="width:100%;margin-top:9px;display:none" onclick="signOutUser()">Sign out</button><p class="tiny">Use an email you control. Never share your password with anyone. This account feature will work after you add your Supabase project URL and public anon/publishable key in the website code.</p></div></section>
-</main><nav class="nav"><button <button data-page="slots" onclick="go('slots')">
-  <span class="ni">🎰</span>Slots
-</button>class="active" data-page="home" onclick="go('home')"><span class="ni">⌂</span>Home</button><button data-page="discover" onclick="go('discover')"><span class="ni">⌕</span>Discover</button><button class="create" data-page="create" onclick="go('create')"><span class="ni">＋</span>Create</button><button data-page="messages" onclick="go('messages')"><span class="ni">▢</span>Messages</button><button data-page="profile" onclick="go('profile')"><span class="ni">♙</span>Profile</button></nav><div class="toast" id="toast"></div></div>
+<section class="page" id="settings"><h1>Edit your profile</h1><div class="sub">Make your space feel like you.</div><div class="card" style="margin-top:16px"><label class="label" for="nameinput">Display name</label><input id="nameinput" class="field" value="TooRaw2Trip Member" maxlength="40"><label class="label" for="bioinput">Bio</label><textarea id="bioinput" class="field" rows="3" maxlength="180">Real ones only. Music ♫ · Good vibes · No fake people.</textarea><button class="primary" onclick="saveProfile()">Save profile</button><p class="tiny">Sign in to save your display name and bio to your TooRaw2Trip account.</p></div></section>
+<section class="page" id="account"><h1>Your TooRaw2Trip account</h1><div class="sub">Create an account to start building your own space.</div><div class="card" style="margin-top:16px"><div id="authStatus" class="notice">Create an account or sign in to access your TooRaw2Trip profile.</div><label class="label" for="authEmail">Email address</label><input id="authEmail" class="field" type="email" autocomplete="email" placeholder="you@example.com"><label class="label" for="authPassword">Password</label><input id="authPassword" class="field" type="password" autocomplete="current-password" placeholder="At least 8 characters"><button class="primary" onclick="signUpUser()">Create account</button><button class="secondary" style="width:100%;margin-top:9px" onclick="signInUser()">Sign in</button><button class="secondary" id="signOutBtn" style="width:100%;margin-top:9px;display:none" onclick="signOutUser()">Sign out</button><p class="tiny">Use an email you control. Never share your password with anyone. Your password is handled by Supabase authentication. Never share it with anyone.</p></div></section>
+</main><nav class="nav">
+<button data-page="slots" onclick="go('slots')"><span class="ni">🎰</span>Slots</button>
+<button class="active" data-page="home" onclick="go('home')"><span class="ni">⌂</span>Home</button>
+<button data-page="discover" onclick="go('discover')"><span class="ni">⌕</span>Discover</button>
+<button class="create" data-page="create" onclick="go('create')"><span class="ni">＋</span>Create</button>
+<button data-page="messages" onclick="go('messages')"><span class="ni">▢</span>Messages</button>
+<button data-page="profile" onclick="go('profile')"><span class="ni">♙</span>Profile</button>
+</nav><div class="toast" id="toast"></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-/* TooRaw2Trip Casino Engine */
+<script>
+/* Supabase project configuration: the publishable key is intended for browser use. */
+const SUPABASE_URL = "https://yzfhcpenoiifoqurjgts.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_GQ1ss6696EFFQEWW_Oc6pg_vgy95giZ";
 
-let casinoData = JSON.parse(localStorage.getItem("tr2casino") || "null") || {
-  coins: 1000,
-  vip: 0,
-  lastBonus: "",
-  spins: 0
-};
+let supabaseClient = null;
+try {
+  if (window.supabase && SUPABASE_URL.startsWith("https://") && SUPABASE_ANON_KEY.startsWith("sb_publishable_")) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+} catch (error) {
+  console.error("Supabase initialization failed:", error);
+}
+
+function $(id) { return document.getElementById(id); }
+
+function toast(message) {
+  const element = $("toast");
+  if (!element) return;
+  element.textContent = message;
+  element.style.display = "block";
+  clearTimeout(window._toast);
+  window._toast = setTimeout(() => { element.style.display = "none"; }, 2600);
+}
+
+function go(id) {
+  document.querySelectorAll(".page").forEach(page => page.classList.toggle("active", page.id === id));
+  document.querySelectorAll(".nav button").forEach(button => button.classList.toggle("active", button.dataset.page === id));
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (id === "account") refreshAuthStatus();
+  if (id === "profile" && supabaseClient) loadProfile();
+}
+
+function openAuth() {
+  go("account");
+  refreshAuthStatus();
+}
+
+async function refreshAuthStatus() {
+  const box = $("authStatus");
+  const out = $("signOutBtn");
+  const accountButton = $("accountBtn");
+  if (!box || !out || !accountButton) return;
+
+  if (!supabaseClient) {
+    box.textContent = "Login is unavailable because Supabase could not be initialized. Check the project URL and publishable key.";
+    out.style.display = "none";
+    accountButton.textContent = "Sign in";
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.getSession();
+  if (error) {
+    box.textContent = "Account status error: " + error.message;
+    return;
+  }
+
+  const user = data.session?.user;
+  if (user) {
+    box.textContent = "Signed in as " + user.email + ". Your account is active.";
+    out.style.display = "block";
+    accountButton.textContent = "Account";
+  } else {
+    box.textContent = "Sign in or create your TooRaw2Trip account below.";
+    out.style.display = "none";
+    accountButton.textContent = "Sign in";
+  }
+}
+
+async function loadProfile() {
+  if (!supabaseClient) return;
+  const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+  if (userError || !userData.user) return;
+
+  const user = userData.user;
+  const { data, error } = await supabaseClient
+    .from("profiles")
+    .select("display_name,bio")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (error) {
+    const status = $("authStatus");
+    if (status) status.textContent = "Signed in, but profile loading failed: " + error.message;
+    return;
+  }
+
+  if (data) {
+    const name = data.display_name || "TooRaw2Trip Member";
+    const bio = data.bio || "";
+    $("displayname").textContent = name + " ✦";
+    $("bio").textContent = bio;
+    $("nameinput").value = name;
+    $("bioinput").value = bio;
+  } else {
+    const { error: insertError } = await supabaseClient.from("profiles").upsert({
+      id: user.id,
+      display_name: "TooRaw2Trip Member",
+      bio: "Real ones only. Music ♫ · Good vibes · No fake people."
+    });
+    if (insertError) {
+      const status = $("authStatus");
+      if (status) status.textContent = "Signed in, but profile setup failed: " + insertError.message;
+    }
+  }
+}
+
+async function signUpUser() {
+  if (!supabaseClient) { toast("Supabase is not connected. Check the project settings in this file."); return; }
+  const email = $("authEmail").value.trim();
+  const password = $("authPassword").value;
+  if (!email || password.length < 8) {
+    toast("Enter a valid email and a password with at least 8 characters.");
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signUp({ email, password });
+  const box = $("authStatus");
+  if (error) { box.textContent = error.message; return; }
+
+  if (data.session?.user) {
+    box.textContent = "Account created and signed in as " + email + ".";
+    await loadProfile();
+  } else {
+    box.textContent = "Account created. Check your email for the confirmation link, then return here and sign in.";
+  }
+  await refreshAuthStatus();
+}
+
+async function signInUser() {
+  if (!supabaseClient) { toast("Supabase is not connected. Check the project settings in this file."); return; }
+  const email = $("authEmail").value.trim();
+  const password = $("authPassword").value;
+  if (!email || !password) { toast("Enter your email and password."); return; }
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) { $("authStatus").textContent = error.message; return; }
+
+  $("authStatus").textContent = "You are signed in as " + data.user.email + ".";
+  await loadProfile();
+  await refreshAuthStatus();
+  toast("Welcome to TooRaw2Trip!");
+}
+
+async function signOutUser() {
+  if (!supabaseClient) return;
+  const { error } = await supabaseClient.auth.signOut();
+  $("authStatus").textContent = error ? error.message : "You have signed out.";
+  if (!error) {
+    $("displayname").textContent = "TooRaw2Trip Member ✦";
+    $("bio").textContent = "Real ones only. Music ♫ · Good vibes · No fake people.";
+  }
+  await refreshAuthStatus();
+}
+
+if (supabaseClient) {
+  supabaseClient.auth.onAuthStateChange((event, session) => {
+    refreshAuthStatus();
+    if (session?.user) window.setTimeout(() => loadProfile(), 0);
+  });
+  supabaseClient.auth.getSession().then(({ data, error }) => {
+    if (error) console.error(error);
+    if (data?.session?.user) loadProfile();
+    refreshAuthStatus();
+  });
+}
+
+function like(button) {
+  if (button.classList.contains("liked")) {
+    button.classList.remove("liked");
+    button.innerHTML = button.innerHTML.replace("♥", "♡");
+  } else {
+    button.classList.add("liked");
+    button.innerHTML = button.innerHTML.replace("♡", "♥");
+  }
+}
+function swipeLike(button) {
+  button.textContent = "✓";
+  button.disabled = true;
+  button.style.background = "#23512f";
+  toast("You liked this demo profile.");
+}
+function pass(button) {
+  const card = button.closest(".match");
+  if (card) card.style.opacity = ".4";
+  button.textContent = "Passed";
+  button.disabled = true;
+  toast("Profile passed in this preview.");
+}
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[character]));
+}
+function publish() {
+  const field = $("posttext");
+  const value = field.value.trim();
+  if (!value) { toast("Write something first."); field.focus(); return; }
+
+  const article = document.createElement("article");
+  article.className = "card";
+  const head = document.createElement("div");
+  head.className = "posthead";
+  head.innerHTML = '<div class="miniavatar">👑</div><div><div class="postname">' +
+    escapeHtml($("displayname").textContent.replace("✦", "").trim()) +
+    '</div><div class="postmeta">Just now · Preview</div></div>';
+  const postText = document.createElement("div");
+  postText.className = "posttext";
+  postText.textContent = value;
+  const actions = document.createElement("div");
+  actions.className = "actions";
+  actions.innerHTML = '<button class="action" onclick="like(this)">♡ 0 Like</button>' +
+    '<button class="action" onclick="toast(\'Comments will be connected in a future build.\')">▢ Comment</button>' +
+    '<button class="action" onclick="toast(\'Reposts are coming soon.\')">⟳ Repost</button>';
+  article.append(head, postText, actions);
+  $("feed").prepend(article);
+  field.value = "";
+  $("postcount").textContent = (Number($("postcount").textContent) || 0) + 1;
+  go("home");
+  toast("Your preview post was added.");
+}
+function theme(primary, accent, button) {
+  document.documentElement.style.setProperty("--purple", primary);
+  document.documentElement.style.setProperty("--pink", accent);
+  document.querySelectorAll(".swatch").forEach(item => item.classList.remove("selected"));
+  button.classList.add("selected");
+  document.querySelectorAll(".pill,.primary").forEach(item => item.style.borderColor = primary);
+  toast("Your profile accent has changed.");
+}
+function editProfile() {
+  $("nameinput").value = $("displayname").textContent.replace("✦", "").trim();
+  $("bioinput").value = $("bio").textContent;
+  go("settings");
+}
+async function saveProfile() {
+  const name = $("nameinput").value.trim() || "TooRaw2Trip Member";
+  const bio = $("bioinput").value.trim();
+
+  if (!supabaseClient) { toast("Account connection is unavailable."); return; }
+  const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+  if (userError || !userData.user) {
+    toast("Sign in before saving your profile.");
+    go("account");
+    return;
+  }
+
+  const { error } = await supabaseClient.from("profiles").upsert({
+    id: userData.user.id,
+    display_name: name,
+    bio: bio,
+    updated_at: new Date().toISOString()
+  });
+
+  if (error) {
+    toast("Profile wasn't saved: " + error.message);
+    return;
+  }
+
+  $("displayname").textContent = name + " ✦";
+  $("bio").textContent = bio;
+  go("profile");
+  toast("Your profile has been saved to your account.");
+}
+function searchChats(query) {
+  document.querySelectorAll("#chatlist .chatrow").forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(query.toLowerCase()) ? "flex" : "none";
+  });
+}
+function setDiscover(kind) { toast(kind + " discovery selected — demo mode."); }
+
+/* Slot Room: virtual coins only, stored on this device/browser. */
+let casinoData = { coins: 1000, vip: 0, lastBonus: "", spins: 0 };
+try {
+  const savedCasino = JSON.parse(localStorage.getItem("tr2casino") || "null");
+  if (savedCasino && typeof savedCasino === "object") casinoData = { ...casinoData, ...savedCasino };
+} catch (error) { console.warn("Could not read saved Slot Room data.", error); }
 
 let casinoCurrentGame = "Royal Fortune";
 let casinoBusy = false;
 let casinoFilter = "all";
 
 function casinoSave() {
-  localStorage.setItem("tr2casino", JSON.stringify(casinoData));
+  try { localStorage.setItem("tr2casino", JSON.stringify(casinoData)); }
+  catch (error) { console.warn("Could not save Slot Room data.", error); }
   casinoRender();
 }
-
 function casinoRender() {
-  const coins = document.getElementById("casinoCoins");
-  if (coins) coins.textContent = casinoData.coins.toLocaleString();
-
-  const vip = document.getElementById("casinoVipProgress");
-  if (vip) {
-    vip.style.width = Math.min(100, casinoData.vip % 100) + "%";
-  }
-
-  const level = document.getElementById("casinoVipLevel");
-  if (level) {
-    level.textContent = "VIP Level " +
-      (Math.floor(casinoData.vip / 100) + 1);
-  }
+  const coins = $("casinoCoins");
+  if (coins) coins.textContent = Number(casinoData.coins).toLocaleString();
+  const progress = $("casinoVipProgress");
+  if (progress) progress.style.width = Math.min(100, casinoData.vip % 100) + "%";
+  const level = $("casinoVipLevel");
+  if (level) level.textContent = "VIP Level " + (Math.floor(casinoData.vip / 100) + 1) + " · " + (casinoData.vip % 100) + "/100 points";
+  const board = $("casinoLeaderboard");
+  if (board) board.innerHTML =
+    "<p><strong>1. You</strong><span>" + Number(casinoData.coins).toLocaleString() + " coins</span></p>" +
+    "<p><strong>2. Diamond King</strong><span>3,500 coins</span></p>" +
+    "<p><strong>3. Slot Master</strong><span>2,000 coins</span></p>";
 }
-
 function casinoOpen(game) {
   casinoCurrentGame = game;
-
-  const title = document.getElementById("casinoGameTitle");
-  const machine = document.getElementById("casinoMachine");
-
-  if (title) title.textContent = game;
-  if (machine) {
-    machine.style.display = "block";
-    machine.scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-
-  casinoRender();
+  $("casinoGameTitle").textContent = game;
+  $("casinoMachine").style.display = "block";
+  $("casinoMachine").scrollIntoView({ behavior: "smooth", block: "center" });
+  $("casinoResult").textContent = "Welcome to " + game + ". Good luck!";
 }
-
-function casinoClose() {
-  const machine = document.getElementById("casinoMachine");
-  if (machine) machine.style.display = "none";
-}
-
+function casinoClose() { $("casinoMachine").style.display = "none"; }
 function casinoSearchGames() {
-  const search = (
-    document.getElementById("casinoSearch")?.value || ""
-  ).toLowerCase();
-
+  const query = ($("casinoSearch").value || "").toLowerCase();
   document.querySelectorAll(".casino-game").forEach(game => {
-    const matchesSearch = game.textContent.toLowerCase().includes(search);
-    const matchesCategory =
-      casinoFilter === "all" ||
-      game.dataset.category === casinoFilter;
-
-    game.style.display =
-      matchesSearch && matchesCategory ? "" : "none";
+    const matchesSearch = game.textContent.toLowerCase().includes(query);
+    const matchesCategory = casinoFilter === "all" || game.dataset.category === casinoFilter;
+    game.style.display = matchesSearch && matchesCategory ? "" : "none";
   });
 }
-
 function casinoCategory(category) {
   casinoFilter = category;
   casinoSearchGames();
 }
-
 function casinoDaily() {
   const today = new Date().toDateString();
-  const message = document.getElementById("casinoDailyMessage");
-
   if (casinoData.lastBonus === today) {
-    if (message) message.textContent =
-      "You already claimed today's bonus. Come back tomorrow!";
+    $("casinoDailyMessage").textContent = "You already claimed today's bonus. Come back tomorrow!";
     return;
   }
-
   casinoData.coins += 250;
   casinoData.lastBonus = today;
-
-  if (message) message.textContent =
-    "You received 250 virtual coins!";
-
+  $("casinoDailyMessage").textContent = "You received 250 virtual coins!";
   casinoSave();
 }
-
 function casinoSpin() {
   if (casinoBusy) return;
-
-  const bet = Number(
-    document.getElementById("casinoBet")?.value || 10
-  );
-
-  const result = document.getElementById("casinoResult");
-  const button = document.getElementById("casinoSpinBtn");
-
-  if (casinoData.coins < bet) {
-    if (result) result.textContent = "Not enough virtual coins!";
+  const bet = Number($("casinoBet").value);
+  if (![10, 25, 50, 100].includes(bet) || casinoData.coins < bet) {
+    $("casinoResult").textContent = "Not enough virtual coins. Claim your daily bonus!";
     return;
   }
 
   casinoBusy = true;
   casinoData.coins -= bet;
-  casinoData.spins++;
-
-  if (button) {
-    button.disabled = true;
-    button.textContent = "SPINNING...";
-  }
-
+  casinoData.spins += 1;
+  $("casinoSpinBtn").disabled = true;
+  $("casinoSpinBtn").textContent = "SPINNING...";
   casinoSave();
 
   const symbols = ["🍒", "💎", "7️⃣", "🍋", "👑", "🔔"];
-  const reels = [
-    document.getElementById("casinoReel1"),
-    document.getElementById("casinoReel2"),
-    document.getElementById("casinoReel3")
-  ];
-
-  let finished = 0;
+  const reels = [$("casinoReel1"), $("casinoReel2"), $("casinoReel3")];
   const finalSymbols = [];
+  let finished = 0;
 
   reels.forEach((reel, index) => {
     let ticks = 0;
     const totalTicks = 12 + index * 7;
-
     const timer = setInterval(() => {
-      if (reel) {
-        reel.textContent =
-          symbols[Math.floor(Math.random() * symbols.length)];
-      }
-
-      ticks++;
-
+      reel.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      ticks += 1;
       if (ticks >= totalTicks) {
         clearInterval(timer);
-
-        finalSymbols[index] =
-          symbols[Math.floor(Math.random() * symbols.length)];
-
-        if (reel) reel.textContent = finalSymbols[index];
-
-        finished++;
-
-        if (finished === 3) {
-          casinoFinishSpin(bet, finalSymbols);
-        }
+        finalSymbols[index] = symbols[Math.floor(Math.random() * symbols.length)];
+        reel.textContent = finalSymbols[index];
+        finished += 1;
+        if (finished === 3) casinoFinishSpin(bet, finalSymbols);
       }
-    }, 100);
+    }, 90);
   });
 }
-
 function casinoFinishSpin(bet, symbols) {
   let winnings = 0;
-
-  if (symbols[0] === symbols[1] &&
-      symbols[1] === symbols[2]) {
-    winnings = bet * 10;
-  } else if (
-    symbols[0] === symbols[1] ||
-    symbols[1] === symbols[2] ||
-    symbols[0] === symbols[2]
-  ) {
-    winnings = bet * 2;
-  }
+  if (symbols[0] === symbols[1] && symbols[1] === symbols[2]) winnings = bet * 10;
+  else if (symbols[0] === symbols[1] || symbols[1] === symbols[2] || symbols[0] === symbols[2]) winnings = bet * 2;
 
   casinoData.coins += winnings;
   casinoData.vip += 5;
-
-  const result = document.getElementById("casinoResult");
-
-  if (result) {
-    result.textContent = winnings > 0
-      ? "YOU WON " + winnings + " VIRTUAL COINS!"
-      : "No win this time. Try again!";
-  }
-
+  $("casinoResult").textContent = winnings
+    ? "YOU WON " + winnings + " VIRTUAL COINS!"
+    : "No win this time. Try again!";
   casinoBusy = false;
-
-  const button = document.getElementById("casinoSpinBtn");
-  if (button) {
-    button.disabled = false;
-    button.textContent = "🎰 SPIN";
-  }
-
+  $("casinoSpinBtn").disabled = false;
+  $("casinoSpinBtn").textContent = "🎰 SPIN";
   casinoSave();
 }
 
-/* Initialize casino */
 casinoRender();
+</script>
 
-  <script> 
-// Add your Supabase project URL and PUBLIC anon/publishable key here. Never use a service_role/secret key in browser code.
-const SUPABASE_URL = "https://yzfhcpenoiifoqurjgts.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_GQ1ss6696EFFQEWW_Oc6pg_vgy95giZ";
-let supabaseClient = null;
-try { if (window.supabase && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_") && !SUPABASE_ANON_KEY.includes("PASTE_")) supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); } catch(e) { console.error(e); }
-function openAuth(){go("account"); refreshAuthStatus();}
-function refreshAuthStatus(){const box=document.getElementById("authStatus");const out=document.getElementById("signOutBtn");const btn=document.getElementById("accountBtn");if(!supabaseClient){box.textContent="Setup needed: add your Supabase project URL and public anon/publishable key to this file, then redeploy. No password is collected or stored by this demo until connected.";out.style.display="none";return;}supabaseClient.auth.getSession().then(({data})=>{const user=data.session?.user;if(user){box.textContent="Signed in as "+user.email+". Your authentication account is active.";out.style.display="block";btn.textContent="Account";}else{box.textContent="Sign in or create your TooRaw2Trip account below.";out.style.display="none";btn.textContent="Sign in";}});}
-async function signUpUser(){if(!supabaseClient){toast("Supabase setup is needed first");return;}const email=document.getElementById("authEmail").value.trim();const password=document.getElementById("authPassword").value;if(!email||password.length<8){toast("Enter a valid email and password with at least 8 characters");return;}const {data,error}=await supabaseClient.auth.signUp({email,password});const box=document.getElementById("authStatus");if(error){box.textContent=error.message;return;}box.textContent=data.session?"Account created and signed in as "+email+".":"Account request created. Check your email for a confirmation link, then sign in.";refreshAuthStatus();}
-async function signInUser(){if(!supabaseClient){toast("Supabase setup is needed first");return;}const email=document.getElementById("authEmail").value.trim();const password=document.getElementById("authPassword").value;const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});const box=document.getElementById("authStatus");if(error){box.textContent=error.message;return;}box.textContent="You are signed in as "+data.user.email+".";refreshAuthStatus();toast("Welcome to TooRaw2Trip!");}
-async function signOutUser(){if(!supabaseClient)return;const {error}=await supabaseClient.auth.signOut();document.getElementById("authStatus").textContent=error?error.message:"You have signed out.";refreshAuthStatus();}
-if(supabaseClient){supabaseClient.auth.onAuthStateChange(()=>refreshAuthStatus());}
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window._toast);window._toast=setTimeout(()=>t.style.display='none',2400)}
-function like(btn){if(btn.classList.contains('liked')){btn.classList.remove('liked');btn.innerHTML=btn.innerHTML.replace('♥','♡')}else{btn.classList.add('liked');btn.innerHTML=btn.innerHTML.replace('♡','♥')} }
-function swipeLike(btn){btn.textContent='✓';btn.disabled=true;btn.style.background='#23512f';toast('You liked this demo profile 💜')}
-function pass(btn){const card=btn.closest('.match');card.style.opacity='.4';btn.textContent='Passed';btn.disabled=true;toast('Profile passed in this preview')}
-function publish(){const field=document.getElementById('posttext');const value=field.value.trim();if(!value){toast('Write something first 💜');field.focus();return}const article=document.createElement('article');article.className='card';const head=document.createElement('div');head.className='posthead';head.innerHTML='<div class="miniavatar">👑</div><div><div class="postname">'+escapeHtml(document.getElementById('displayname').textContent.replace('✦','').trim())+'</div><div class="postmeta">Just now · Preview</div></div>';const text=document.createElement('div');text.className='posttext';text.textContent=value;const actions=document.createElement('div');actions.className='actions';actions.innerHTML='<button class="action" onclick="like(this)">♡ 0 Like</button><button class="action" onclick="toast(\'Comments will be connected in the next build\')">▢ Comment</button><button class="action" onclick="toast(\'Reposts are coming soon\')">⟳ Repost</button>';article.append(head,text,actions);document.getElementById('feed').prepend(article);field.value='';let n=Number(document.getElementById('postcount').textContent)||0;document.getElementById('postcount').textContent=n+1;go('home');toast('Your preview post was added!')}
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function theme(a,b,el){document.documentElement.style.setProperty('--purple',a);document.documentElement.style.setProperty('--pink',b);document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.querySelectorAll('.pill,.primary').forEach(x=>x.style.borderColor=a);toast('Your profile accent has changed!')}
-function editProfile(){document.getElementById('nameinput').value=document.getElementById('displayname').textContent.replace('✦','').trim();document.getElementById('bioinput').value=document.getElementById('bio').textContent;go('settings')}
-function saveProfile(){const n=document.getElementById('nameinput').value.trim()||'TooRaw2Trip Member';const b=document.getElementById('bioinput').value.trim();document.getElementById('displayname').textContent=n+' ✦';document.getElementById('bio').textContent=b;go('profile');toast('Profile preview updated 💜')}
-function searchChats(q){document.querySelectorAll('#chatlist .chatrow').forEach(r=>r.style.display=r.textContent.toLowerCase().includes(q.toLowerCase())?'flex':'none')}
-function setDiscover(kind){toast(kind+' discovery selected — demo mode')}
-</script>// TooRaw2Trip Casino functions
-let casinoData={coins:1000,points:0,lastBonus:""};
-try{
-casinoData={...casinoData,...JSON.parse(localStorage.getItem("tr2casino")||"{}")};
-}catch(e){}
-
-let casinoBusy=false;
-
-function casinoSave(){
-try{localStorage.setItem("tr2casino",JSON.stringify(casinoData));}catch(e){}
-casinoRender();
-}
-
-function casinoRender(){
-const coins=document.getElementById("casinoCoins");
-if(coins)coins.textContent=casinoData.coins.toLocaleString();
-const points=casinoData.points;
-const vip=document.getElementById("casinoVip");
-const progress=document.getElementById("casinoProgress");
-const label=document.getElementById("casinoVipPoints");
-if(vip)vip.textContent=points>=2000?"GOLD VIP MEMBER":points>=500?"SILVER VIP MEMBER":"BRONZE MEMBER";
-if(progress)progress.style.width=Math.min(points/20,100)+"%";
-if(label)label.textContent=points+" / 2000 VIP points";
-const board=document.getElementById("casinoLeaderboard");
-if(board)board.innerHTML='<div class="casino-rank"><b>1. You</b><span>'+points+' points</span></div><div class="casino-rank"><b>2. Player Two</b><span>0 points</span></div><div class="casino-rank"><b>3. Player Three</b><span>0 points</span></div>';
-}
-
-function casinoOpen(name){
-document.getElementById("casinoMachine").classList.add("open");
-document.getElementById("casinoGameTitle").textContent=name.toUpperCase();
-document.getElementById("casinoStatus").textContent="Welcome to "+name+"!";
-document.getElementById("casinoMachine").scrollIntoView({behavior:"smooth",block:"center"});
-}
-
-function casinoClose(){
-document.getElementById("casinoMachine").classList.remove("open");
-}
-
-function casinoDaily(){
-const today=new Date().toLocaleDateString();
-if(casinoData.lastBonus===today){
-document.getElementById("casinoDailyStatus").textContent="You already claimed today's reward. Come back tomorrow!";
-return;
-}
-casinoData.coins+=100;
-casinoData.lastBonus=today;
-casinoSave();
-document.getElementById("casinoDailyStatus").textContent="100 virtual coins added to your balance!";
-}
-
-function casinoSearchGames(query){
-document.querySelectorAll("#casinoGrid .casino-game").forEach(game=>{
-game.style.display=game.dataset.name.toLowerCase().includes(query.toLowerCase())?"block":"none";
-});
-}
-
-function casinoCategory(category,button){
-document.querySelectorAll("#slots .casino-tabs button").forEach(b=>b.classList.remove("selected"));
-button.classList.add("selected");
-document.querySelectorAll("#casinoGrid .casino-game").forEach(game=>{
-game.style.display=category==="all"||game.dataset.category===category?"block":"none";
-});
-document.getElementById("casinoSearch").value="";
-}
-
-function casinoSpin(){
-if(casinoBusy)return;
-const bet=Number(document.getElementById("casinoBet").value);
-if(casinoData.coins<bet){
-document.getElementById("casinoStatus").textContent="Not enough coins. Claim your daily bonus!";
-return;
-}
-casinoBusy=true;
-casinoData.coins-=bet;
-casinoSave();
-document.getElementById("casinoSpin").disabled=true;
-const symbols=["🍒","🍋","🍇","💎","7️⃣","🔔","⭐","👑"];
-const ids=["casinoR1","casinoR2","casinoR3"];
-const results=ids.map(()=>symbols[Math.floor(Math.random()*symbols.length)]);
-ids.forEach((id,i)=>{
-const el=document.getElementById(id);
-let count=0;
-const timer=setInterval(()=>{
-el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-count++;
-if(count>=15+i*7){
-clearInterval(timer);
-el.textContent=results[i];
-if(i===2){
-const matches=results.filter(s=>s===results[0]).length;
-let winnings=matches===3?bet*10:matches===2?bet*2:0;
-casinoData.coins+=winnings;
-casinoData.points+=winnings?bet:0;
-casinoSave();
-document.getElementById("casinoStatus").textContent=winnings?"🎉 YOU WON "+winnings+" VIRTUAL COINS!":"No win this time. Try again!";
-casinoBusy=false;
-document.getElementById("casinoSpin").disabled=false;
-}
-}
-},100);
-});
-}
-
-casinoRender();</body></html>
+</body></html>
