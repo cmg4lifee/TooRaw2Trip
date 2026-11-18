@@ -473,7 +473,7 @@ function publish() {
   actions.className = "actions";
   actions.innerHTML = '<button class="action" onclick="like(this)">♡ 0 Like</button>' +
     '<button class="action" onclick="toast(\'Comments are being loaded.\')">▢ Comment</button>' +
-    '<button class="action" onclick="toast(\'Reposts are coming soon.\')">⟳ Repost</button>';
+    '<button class="action" onclick="toast(\'Your post are ready to share.\')">⟳ Repost</button>';
   article.append(head, postText, actions);
   $("feed").prepend(article);
   field.value = "";
