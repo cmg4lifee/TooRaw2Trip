@@ -472,7 +472,7 @@ function publish() {
   const actions = document.createElement("div");
   actions.className = "actions";
   actions.innerHTML = '<button class="action" onclick="like(this)">♡ 0 Like</button>' +
-    '<button class="action" onclick="toast(\'Comments will be connected in a future build.\')">▢ Comment</button>' +
+    '<button class="action" onclick="toast(\'Comments are being loaded.\')">▢ Comment</button>' +
     '<button class="action" onclick="toast(\'Reposts are coming soon.\')">⟳ Repost</button>';
   article.append(head, postText, actions);
   $("feed").prepend(article);
