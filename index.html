@@ -502,62 +502,7 @@ async function saveProfile() {
   const { data: userData, error: userError } = await supabaseClient.auth.getUser();
   if (userError || !userData.user) {
     toast("Sign in before saving your profile.");
-    go("account");
-    return;
-  }
-
-  const { error } = await supabaseClient.from("profiles").upsert({
-    id: userData.user.id,
-    display_name: name,
-    bio: bio,
-    updated_at: new Date().toISOString()
-  });
-
-  if (error) {
-    toast("Profile wasn't saved: " + error.message);
-    return;
-  }
-
-  $("displayname").textContent = name + " ✦";
-  $("bio").textContent = bio;
-  go("profile");
-  toast("Your profile has been saved to your account.");
-}
-function searchChats(query) {
-  document.querySelectorAll("#chatlist .chatrow").forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(query.toLowerCase()) ? "flex" : "none";
-  });
-}
-function setDiscover(kind) { toast(kind + " discovery selected — demo mode."); }
-
-/* Slot Room: virtual coins only, stored on this device/browser. */
-let casinoData = { coins: 1000, vip: 0, lastBonus: "", spins: 0 };
-try {
-  const savedCasino = JSON.parse(localStorage.getItem("tr2casino") || "null");
-  if (savedCasino && typeof savedCasino === "object") casinoData = { ...casinoData, ...savedCasino };
-} catch (error) { console.warn("Could not read saved Slot Room data.", error); }
-
-let casinoCurrentGame = "Royal Fortune";
-let casinoBusy = false;
-let casinoFilter = "all";
-
-function casinoSave() {
-  try { localStorage.setItem("tr2casino", JSON.stringify(casinoData)); }
-  catch (error) { console.warn("Could not save Slot Room data.", error); }
-  casinoRender();
-}
-function casinoRender() {
-  const coins = $("casinoCoins");
-  if (coins) coins.textContent = Number(casinoData.coins).toLocaleString();
-  const progress = $("casinoVipProgress");
-  if (progress) progress.style.width = Math.min(100, casinoData.vip % 100) + "%";
-  const level = $("casinoVipLevel");
-  if (level) level.textContent = "VIP Level " + (Math.floor(casinoData.vip / 100) + 1) + " · " + (casinoData.vip % 100) + "/100 points";
-  const board = $("casinoLeaderboard");
-  if (board) board.innerHTML =
-    "<p><strong>1. You</strong><span>" + Number(casinoData.coins).toLocaleString() + " coins</span></p>" +
-    "<p><strong>2. Diamond King</strong><span>3,500 coins</span></p>" +
-    "<p><strong>3. Slot Master</strong><span>2,000 coins</span></p>";
+    go("account")    "<p><strong>3. Slot Master</strong><span>2,000 coins</span></p>";
 }
 function casinoOpen(game) {
   casinoCurrentGame = game;
