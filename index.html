@@ -104,10 +104,9 @@
   <div class="casino-machine" id="casinoMachine" style="display:none">
     <button onclick="casinoClose()">← BACK TO GAMES</button>
     <h2 id="casinoGameTitle">Royal Fortune</h2>
-    <div class="casino-reels">
-      <div class="casino-reel" id="casinoReel1">🍒</div>
-      <div class="casino-reel" id="casinoReel2">💎</div>
-      <div class="casino-reel" id="casinoReel3">7️⃣</div>
+    <div class="casino-reels"><div class="casino-reel" id="casinoReel1">CHERRY</div>
+<div class="casino-reel" id="casinoReel2">DIAMOND</div>
+<div class="casino-reel" id="casinoReel3">777</div>
     </div>
     <p>Choose your virtual coin bet</p>
     <select id="casinoBet">
@@ -550,7 +549,7 @@ function casinoSpin() {
   $("casinoSpinBtn").textContent = "SPINNING...";
   casinoSave();
 
-  const symbols = ["🍒", "💎", "7️⃣", "🍋", "👑", "🔔"];
+  const symbols = ["CHERRY", "DIAMOND", "777", "LEMON", "CROWN", "BELL"];
   const reels = [$("casinoReel1"), $("casinoReel2"), $("casinoReel3")];
   const finalSymbols = [];
   let finished = 0;
