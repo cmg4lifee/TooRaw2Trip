@@ -492,17 +492,40 @@ function editProfile() {
   $("nameinput").value = $("displayname").textContent.replace("✦", "").trim();
   $("bioinput").value = $("bio").textContent;
   go("settings");
-}
-async function saveProfile() {
+}async function saveProfile() {
   const name = $("nameinput").value.trim() || "TooRaw2Trip Member";
   const bio = $("bioinput").value.trim();
 
-  if (!supabaseClient) { toast("Account connection is unavailable."); return; }
+  if (!supabaseClient) {
+    toast("Account connection is unavailable.");
+    return;
+  }
+
   const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+
   if (userError || !userData.user) {
     toast("Sign in before saving your profile.");
-    go("account")    "<p><strong>3. Slot Master</strong><span>2,000 coins</span></p>";
+    go("account");
+    return;
+  }
+
+  const { error } = await supabaseClient.from("profiles").upsert({
+    id: userData.user.id,
+    display_name: name,
+    bio: bio
+  });
+
+  if (error) {
+    toast("Profile save failed: " + error.message);
+    return;
+  }
+
+  $("displayname").textContent = name + " ✦";
+  $("bio").textContent = bio;
+  toast("Profile saved!");
+  go("profile");
 }
+
 function casinoOpen(game) {
   casinoCurrentGame = game;
   $("casinoGameTitle").textContent = game;
