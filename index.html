@@ -161,27 +161,189 @@
 @media(max-width:360px){.tr3d-grid{grid-template-columns:1fr}}
 </style>
 
-<div id="tr3d">
-  <h2>🎰 TOO RAW 2 TRIP — 3D SLOT ROOM</h2>
-  <p style="text-align:center">Choose your game. Spin for virtual coins.</p>
-  <p style="text-align:center">Virtual balance: <strong id="tr3d-balance">1000</strong> coins</p>
 
-  <div class="tr3d-grid" id="tr3d-games"></div>
+<style>
+#tr3d{background:radial-gradient(ellipse at top,#40205e,#090711 75%);color:#fff;padding:18px;border-radius:18px;font-family:Arial,sans-serif;max-width:100%;box-sizing:border-box}
+#tr3d *{box-sizing:border-box}
+#tr3d h2{text-align:center;color:#ffd76a;text-shadow:0 0 14px #d99b35}
+#tr3d .tr-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;background:#171020;padding:12px;border:1px solid #7855a0;border-radius:12px}
+#tr3d .tr-balance{color:#ffe28a;font-weight:bold;font-size:18px}
+#tr3d button{border:1px solid #d7a94e;border-radius:9px;padding:11px 14px;background:linear-gradient(#7546a4,#32164f);color:white;font-weight:bold;cursor:pointer}
+#tr3d button:active{transform:scale(.97)}
+#tr3d .tr-games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}
+#tr3d .tr-game{min-height:105px;text-align:center;background:linear-gradient(145deg,#28143e,#100b19);border:1px solid #9867bd;border-radius:12px;padding:14px;cursor:pointer}
+#tr3d .tr-game strong{display:block;color:#ffdc83;margin-bottom:7px}
+#tr3d .tr-game span{font-size:12px;color:#d6c5e6}
+#tr3d .tr-machine{background:linear-gradient(145deg,#27163a,#09070e);border:3px solid #c18a39;border-radius:16px;padding:14px;text-align:center;box-shadow:0 0 22px #9c5bce}
+#tr3d .tr-machine h3{color:#ffdc83}
+#tr3d .tr-reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;background:#07050a;padding:8px;border:2px solid #d6a34b;border-radius:12px}
+#tr3d .tr-reel{height:78px;display:flex;align-items:center;justify-content:center;background:linear-gradient(#fff7d8,#c6a66b);color:#321b35;border-radius:7px;font-size:clamp(12px,3vw,19px);font-weight:900;text-shadow:0 1px #fff;overflow:hidden}
+#tr3d .tr-reel.spin{animation:trRoll .12s linear infinite}
+@keyframes trRoll{0%{transform:translateY(-5px);filter:blur(2px)}100%{transform:translateY(5px);filter:blur(0)}}
+#tr3d .tr-controls{display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap;margin:13px 0}
+#tr3d .tr-message{min-height:28px;color:#ffe28a;font-weight:bold}
+#tr3d .tr-cards{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:18px 0}
+#tr3d .tr-card{width:53px;height:76px;background:#fff;color:#171020;border:2px solid #d9b56b;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:bold}
+#tr3d .tr-card.held{border:3px solid #52e69a;transform:translateY(-7px)}
+#tr3d .tr-small{font-size:12px;color:#d6c5e6}
+#tr3d input{width:75px;padding:9px;border-radius:8px;border:1px solid #d7a94e;background:#100b19;color:white}
+#tr3d .tr-hidden{display:none}
+@media(max-width:420px){#tr3d{padding:10px}#tr3d .tr-reel{height:62px}}
+</style>
 
-  <div id="tr3d-machine">
-    <h3 id="tr3d-title">Game</h3>
-    <div class="tr3d-reels">
-      <div class="tr3d-reel" id="tr3d-r1">🍒</div>
-      <div class="tr3d-reel" id="tr3d-r2">💎</div>
-      <div class="tr3d-reel" id="tr3d-r3">7️⃣</div>
-    </div>
-    <p>Spin cost: 10 virtual coins</p>
-    <button id="tr3d-spin">SPIN</button>
-    <button id="tr3d-back">BACK TO GAMES</button>
-    <p id="tr3d-message">Good luck!</p>
+<section id="tr3d">
+  <h2>TOO RAW 2 TRIP CASINO</h2>
+  <div class="tr-top">
+    <span class="tr-balance">COINS: <span id="tr3d-balance">1,000</span></span>
+    <button id="tr3d-sound">SOUND: ON</button>
   </div>
-  <p style="text-align:center;font-size:12px">Virtual coins only. No cash value or real-money gambling.</p>
-</div>
+  <p style="text-align:center;color:#d9c5ed">The World Moves Here</p>
+  <div id="tr3d-lobby">
+    <div class="tr-games">
+      <button class="tr-game" data-game="buffalo"><strong>BUFFALO STAMPEDE</strong><span>Wild western slot machine</span></button>
+      <button class="tr-game" data-game="diamonds"><strong>DIAMOND FORTUNE</strong><span>Luxury five-reel slots</span></button>
+      <button class="tr-game" data-game="classic"><strong>CLASSIC 777</strong><span>Traditional slot machine</span></button>
+      <button class="tr-game" data-game="poker"><strong>VIDEO POKER</strong><span>Five-card draw</span></button>
+      <button class="tr-game" data-game="blackjack"><strong>BLACKJACK</strong><span>Beat the dealer</span></button>
+    </div>
+    <p class="tr-small" style="text-align:center">Virtual coins only. No real-money deposits or payouts.</p>
+  </div>
+  <div id="tr3d-table" class="tr-hidden">
+    <div class="tr-machine">
+      <h3 id="tr3d-title">GAME</h3>
+      <div id="tr3d-slot">
+        <div class="tr-reels" id="tr3d-reels"></div>
+      </div>
+      <div id="tr3d-cards" class="tr-hidden">
+        <p id="tr3d-card-label">Your cards</p>
+        <div class="tr-cards" id="tr3d-card-hand"></div>
+        <p class="tr-small" id="tr3d-card-help"></p>
+      </div>
+      <div class="tr-controls">
+        <label>Bet <input id="tr3d-bet" type="number" min="10" max="500" step="10" value="10"></label>
+      </div>
+      <div id="tr3d-actions" class="tr-controls"></div>
+      <div class="tr-message" id="tr3d-message">Choose your bet and play!</div>
+      <button id="tr3d-back">BACK TO GAMES</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+ const root=document.getElementById("tr3d");
+ if(!root || root.dataset.ready)return;
+ root.dataset.ready="yes";
+ const $=id=>root.querySelector("#"+id);
+ let balance=1000,game="buffalo",busy=false,sound=true;
+ let hand=[],held=[],deck=[],dealer=[],player=[],roundOver=false;
+ const symbols={
+  buffalo:["BISON","WILD","GOLD","7","BONUS","BISON","WILD","GOLD","7","BONUS"],
+  diamonds:["DIAMOND","CROWN","GOLD","7","STAR","DIAMOND","CROWN","GOLD","7","STAR"],
+  classic:["7","BAR","CHERRY","BELL","777","7","BAR","CHERRY","BELL","777"]
+ };
+ const names={buffalo:"BUFFALO STAMPEDE",diamonds:"DIAMOND FORTUNE",classic:"CLASSIC 777",poker:"VIDEO POKER",blackjack:"BLACKJACK"};
+ function say(s){$("tr3d-message").textContent=s}
+ function update(){ $("tr3d-balance").textContent=balance.toLocaleString() }
+ function bet(){let n=Number($("tr3d-bet").value);return Number.isFinite(n)?Math.max(10,Math.min(500,Math.floor(n))):10}
+ function charge(n){if(balance<n){say("Not enough coins. Lower your bet.");return false}balance-=n;update();return true}
+ function pay(n){balance+=n;update()}
+ function beep(freq=500){if(!sound)return;try{let C=window.AudioContext||window.webkitAudioContext;if(!C)return;let c=new C(),o=c.createOscillator(),g=c.createGain();o.frequency.value=freq;g.gain.value=.04;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.12);o.onended=()=>c.close()}catch(e){}}
+ function showActions(items){$("tr3d-actions").innerHTML=items.map(x=>'<button data-action="'+x[0]+'">'+x[1]+'</button>').join("")}
+ function open(g){
+  game=g;$("tr3d-lobby").classList.add("tr-hidden");$("tr3d-table").classList.remove("tr-hidden");
+  $("tr3d-title").textContent=names[g];$("tr3d-bet").value=10;
+  $("tr3d-slot").classList.toggle("tr-hidden",g==="poker"||g==="blackjack");
+  $("tr3d-cards").classList.toggle("tr-hidden",g!=="poker"&&g!=="blackjack");
+  if(g==="poker")newPoker();else if(g==="blackjack")newBlackjack();else makeReels();
+ }
+ function makeReels(){
+  $("tr3d-reels").innerHTML=Array.from({length:15},(_,i)=>'<div class="tr-reel">'+symbols[game][i%symbols[game].length]+'</div>').join("");
+  showActions([["spin","SPIN"]];
+  say("Match symbols to win virtual coins.");
+ }
+ function spin(){
+  if(busy)return;
+  let b=bet();if(!charge(b))return;
+  busy=true;let cells=[...$("tr3d-reels").children];
+  cells.forEach(c=>c.classList.add("spin"));
+  say("Reels spinning...");beep(350);
+  setTimeout(()=>{
+   let s=symbols[game],result=Array.from({length:15},()=>s[Math.floor(Math.random()*s.length)]);
+   cells.forEach((c,i)=>{c.textContent=result[i];c.classList.remove("spin")});
+   let counts={};result.forEach(x=>counts[x]=(counts[x]||0)+1);
+   let best=Math.max(...Object.values(counts));
+   let win=best>=5?b*10:best===4?b*4:best===3?b*2:0;
+   if(win){pay(win);say("WIN! "+win+" coins added!");beep(850)}else{say("No win this time. Try another spin.");beep(220)}
+   busy=false;
+  },1100);
+ }
+ const suits=["♠","♥","♦","♣"],ranks=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+ function newDeck(){deck=[];for(let s of suits)for(let r of ranks)deck.push({r,s});for(let i=deck.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}}
+ function draw(){return deck.pop()}
+ function card(c){return c.r+c.s}
+ function showHand(cards,holdable){
+  $("tr3d-card-hand").innerHTML=cards.map((c,i)=>'<div class="tr-card '+(holdable&&held[i]?"held":"")+'" data-card="'+i+'">'+card(c)+'</div>').join("");
+ }
+ function newPoker(){
+  newDeck();held=[false,false,false,false,false];hand=Array.from({length:5},draw);
+  $("tr3d-card-label").textContent="YOUR CARDS";$("tr3d-card-help").textContent="Tap cards to hold, then press DRAW.";
+  showHand(hand,true);showActions([["deal","DEAL / DRAW"]]);say("Place your bet and hold the cards you want.");
+ }
+ function pokerDraw(){
+  let b=bet();if(!charge(b))return;
+  if(!hand.length){newPoker();return}
+  hand=hand.map((c,i)=>held[i]?c:draw());
+  showHand(hand,false);
+  let vals=hand.map(c=>ranks.indexOf(c.r)).sort((a,b)=>a-b);
+  let counts={};hand.forEach(c=>counts[c.r]=(counts[c.r]||0)+1);
+  let groups=Object.values(counts).sort((a,b)=>b-a);
+  let flush=hand.every(c=>c.s===hand[0].s);
+  let straight=vals.every((v,i)=>i===0||v===vals[i-1]+1)||vals.join(",")==="0,9,10,11,12";
+  let mult=0;
+  if(straight&&flush)mult=25;else if(groups[0]===4)mult=8;else if(groups[0]===3&&groups[1]===2)mult=5;else if(flush)mult=4;else if(straight)mult=3;else if(groups[0]===3)mult=2;else if(groups[0]===2&&groups[1]===2)mult=2;else if(groups[0]===2&&["J","Q","K","A"].includes(hand.find(c=>counts[c.r]===2)?.r))mult=1;
+  let win=b*mult;if(win){pay(win);say("Poker win! "+win+" coins paid.");beep(850)}else say("No winning hand. Start another hand.");
+  $("tr3d-card-help").textContent="Payout: "+mult+"x your bet.";
+  hand=[];showActions([["deal","NEW HAND"]]);
+ }
+ function total(cards){let t=0,a=0;cards.forEach(c=>{if(c.r==="A"){t+=11;a++}else t+=["K","Q","J"].includes(c.r)?10:Number(c.r)});while(t>21&&a){t-=10;a--}return t}
+ function showBlackjack(){
+  $("tr3d-card-label").textContent="YOUR HAND: "+total(player)+"  |  DEALER: "+(roundOver?total(dealer):card(dealer[0])+" + ?");
+  $("tr3d-card-help").textContent="Dealer cards";
+  $("tr3d-card-hand").innerHTML='<div style="width:100%"><b>YOU</b><div class="tr-cards">'+player.map(c=>'<div class="tr-card">'+card(c)+'</div>').join("")+'</div><b>DEALER</b><div class="tr-cards">'+dealer.map((c,i)=>'<div class="tr-card">'+(i===1&&!roundOver?"?":card(c))+'</div>').join("")+'</div></div>';
+ }
+ function newBlackjack(){
+  newDeck();roundOver=false;let b=bet();if(!charge(b))return;
+  player=[draw(),draw()];dealer=[draw(),draw()];showBlackjack();showActions([["hit","HIT"],["stand","STAND"]]);say("Your turn. Hit or stand.");
+ }
+ function finishBlackjack(){
+  roundOver=true;let p=total(player),d=total(dealer);
+  while(d<17)dealer.push(draw());
+  showBlackjack();
+  if(p>21){say("Bust! Dealer wins.");beep(220)}
+  else if(d>21||p>d){pay(bet()*2);say("You win! Coins paid.");beep(850)}
+  else if(p===d){pay(bet());say("Push! Your bet returned.");beep(500)}
+  else{say("Dealer wins this hand.");beep(220)}
+  showActions([["new","NEW HAND"]]);
+ }
+ $("tr3d-lobby").addEventListener("click",e=>{let b=e.target.closest("[data-game]");if(b)open(b.dataset.game)});
+ $("tr3d-actions").addEventListener("click",e=>{
+  let a=e.target.closest("[data-action]");if(!a||busy)return;
+  if(a.dataset.action==="spin")spin();
+  if(a.dataset.action==="deal")pokerDraw();
+  if(a.dataset.action==="hit"&&total(player)<22){player.push(draw());showBlackjack();if(total(player)>21)finishBlackjack()}
+  if(a.dataset.action==="stand")finishBlackjack();
+  if(a.dataset.action==="new")newBlackjack();
+ });
+ $("tr3d-card-hand").addEventListener("click",e=>{
+  let c=e.target.closest("[data-card]");if(!c||game!=="poker"||!hand.length)return;
+  let i=Number(c.dataset.card);held[i]=!held[i];showHand(hand,true);
+ });
+ $("tr3d-back").addEventListener("click",()=>{$("tr3d-table").classList.add("tr-hidden");$("tr3d-lobby").classList.remove("tr-hidden");busy=false});
+ $("tr3d-sound").addEventListener("click",()=>{sound=!sound;$("tr3d-sound").textContent="SOUND: "+(sound?"ON":"OFF");if(sound)beep()});
+ update();
+})();
+</script>
 
 <script>
 (function(){
